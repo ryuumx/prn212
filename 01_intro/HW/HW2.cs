@@ -1,7 +1,4 @@
-// FileAnalyzer.cs
 // A utility to analyze text files and provide statistics
-// Homework: Students need to implement the analysis functionality
-
 using System;
 using System.IO;
 using System.Collections.Generic;

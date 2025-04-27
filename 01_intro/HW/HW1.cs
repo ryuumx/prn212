@@ -1,7 +1,4 @@
-// CommandLineCalculator.cs
 // A simple calculator app that takes commands from the command line
-// Homework: Students need to implement the basic operations
-
 using System;
 
 namespace CommandLineCalculator

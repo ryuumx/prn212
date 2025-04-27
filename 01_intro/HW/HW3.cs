@@ -1,80 +1,90 @@
-// Logger.cs
-// An advanced component that provides cross-platform logging functionality
-// Homework: Students need to implement proper logging to both console and file
-
+// Build a task scheduler
 using System;
-using System.IO;
+using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
-using System.Runtime.InteropServices;
 
-namespace CrossPlatformLogger
+namespace TaskScheduler
 {
-    // This is a basic interface defining logging functions
-    public interface ILogger
+    // Simple task priority enum
+    public enum TaskPriority
     {
-        void Log(LogLevel level, string message);
-        Task FlushAsync();
+        Low,
+        Normal,
+        High
     }
     
-    public enum LogLevel
+    // Interface for task definition
+    public interface IScheduledTask
     {
-        Debug,
-        Info,
-        Warning,
-        Error,
-        Critical
+        string Name { get; }
+        TaskPriority Priority { get; }
+        TimeSpan Interval { get; }
+        DateTime LastRun { get; }
+        Task ExecuteAsync();
     }
     
-    // TODO: Students need to implement a ConsoleLogger and FileLogger class
-    // that implements the ILogger interface
-    
-    public class ConsoleLogger : ILogger
+    // A basic implementation of a scheduled task
+    public class SimpleTask : IScheduledTask
     {
-        // Students will implement this class
-        public void Log(LogLevel level, string message)
+        private readonly Func<Task> _action;
+        private DateTime _lastRun = DateTime.MinValue;
+        
+        public string Name { get; }
+        public TaskPriority Priority { get; }
+        public TimeSpan Interval { get; }
+        
+        public DateTime LastRun => _lastRun;
+        
+        public SimpleTask(string name, TaskPriority priority, TimeSpan interval, Func<Task> action)
         {
-            // TODO: Implement logging to console with different colors based on level
+            Name = name;
+            Priority = priority;
+            Interval = interval;
+            _action = action;
+        }
+        
+        public async Task ExecuteAsync()
+        {
+            await _action();
+            _lastRun = DateTime.Now;
+        }
+    }
+    
+    // The scheduler that students need to implement
+    public class TaskScheduler
+    {
+        // TODO: Implement task queue/storage mechanism
+        
+        public TaskScheduler()
+        {
+            // TODO: Initialize your scheduler
+        }
+        
+        public void AddTask(IScheduledTask task)
+        {
+            // TODO: Add task to the scheduler
             throw new NotImplementedException();
         }
         
-        public Task FlushAsync()
+        public void RemoveTask(string taskName)
         {
-            // Console logging is immediate, no need to flush
-            return Task.CompletedTask;
-        }
-    }
-    
-    public class FileLogger : ILogger
-    {
-        // Students will implement this class
-        private readonly string _filePath;
-        
-        public FileLogger(string filePath)
-        {
-            _filePath = filePath;
-            // TODO: Initialize logging directory and file
-        }
-        
-        public void Log(LogLevel level, string message)
-        {
-            // TODO: Implement logging to file with timestamps and log levels
+            // TODO: Remove task from the scheduler
             throw new NotImplementedException();
         }
         
-        public Task FlushAsync()
+        public async Task StartAsync(CancellationToken cancellationToken)
         {
-            // TODO: Implement any necessary flushing
+            // TODO: Implement the scheduling logic
+            // - Run higher priority tasks first
+            // - Only run tasks when their interval has elapsed since LastRun
+            // - Keep running until cancellation is requested
             throw new NotImplementedException();
         }
-    }
-    
-    // Example of a Logger factory students could implement
-    public static class LoggerFactory
-    {
-        public static ILogger CreateLogger(bool useConsole, string filePath = null)
+        
+        public List<IScheduledTask> GetScheduledTasks()
         {
-            // TODO: Students should implement this factory method
-            // to return either a ConsoleLogger, FileLogger, or a composite logger
+            // TODO: Return a list of all scheduled tasks
             throw new NotImplementedException();
         }
     }
@@ -83,20 +93,65 @@ namespace CrossPlatformLogger
     {
         static async Task Main(string[] args)
         {
-            Console.WriteLine("Cross-Platform Logger Demo");
+            Console.WriteLine("Task Scheduler Demo");
             
-            // Example usage (for students to implement and expand)
-            ILogger logger = new ConsoleLogger(); // Default to console logger
+            // Create the scheduler
+            var scheduler = new TaskScheduler();
             
-            // Log some messages
-            logger.Log(LogLevel.Info, "Application started");
-            logger.Log(LogLevel.Debug, "Debug information");
-            logger.Log(LogLevel.Warning, "This is a warning");
-            logger.Log(LogLevel.Error, "An error occurred");
+            // Add some tasks
+            scheduler.AddTask(new SimpleTask(
+                "High Priority Task", 
+                TaskPriority.High,
+                TimeSpan.FromSeconds(2),
+                async () => {
+                    Console.WriteLine($"[{DateTime.Now:HH:mm:ss}] Running high priority task");
+                    await Task.Delay(500); // Simulate some work
+                }
+            ));
             
-            await logger.FlushAsync();
+            scheduler.AddTask(new SimpleTask(
+                "Normal Priority Task", 
+                TaskPriority.Normal,
+                TimeSpan.FromSeconds(3),
+                async () => {
+                    Console.WriteLine($"[{DateTime.Now:HH:mm:ss}] Running normal priority task");
+                    await Task.Delay(300); // Simulate some work
+                }
+            ));
             
-            Console.WriteLine("\nLogger implementation complete!");
+            scheduler.AddTask(new SimpleTask(
+                "Low Priority Task", 
+                TaskPriority.Low,
+                TimeSpan.FromSeconds(4),
+                async () => {
+                    Console.WriteLine($"[{DateTime.Now:HH:mm:ss}] Running low priority task");
+                    await Task.Delay(200); // Simulate some work
+                }
+            ));
+            
+            // Create a cancellation token that will cancel after 20 seconds
+            var cts = new CancellationTokenSource(TimeSpan.FromSeconds(20));
+            
+            // Or allow the user to cancel with a key press
+            Console.WriteLine("Press any key to stop the scheduler...");
+            
+            // Run the scheduler in the background
+            var schedulerTask = scheduler.StartAsync(cts.Token);
+            
+            // Wait for user input
+            Console.ReadKey();
+            cts.Cancel();
+            
+            try
+            {
+                await schedulerTask;
+            }
+            catch (OperationCanceledException)
+            {
+                Console.WriteLine("Scheduler stopped by cancellation.");
+            }
+            
+            Console.WriteLine("Scheduler demo finished!");
         }
     }
 }

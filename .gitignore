@@ -1,0 +1,7 @@
+# Ignore build, bin, and obj directories
+build/
+bin/
+obj/
+
+# Ignore all .csproj files
+*.csproj
