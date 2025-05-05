@@ -35,7 +35,7 @@ namespace FileAnalyzer
                 // Read the file content
                 string content = File.ReadAllText(filePath);
                 
-                // TODO: Students will implement analysis functionality
+                // TODO: Implement analysis functionality
                 // 1. Count words
                 // 2. Count characters (with and without whitespace)
                 // 3. Count sentences
@@ -46,7 +46,7 @@ namespace FileAnalyzer
                 int lineCount = File.ReadAllLines(filePath).Length;
                 Console.WriteLine($"Number of lines: {lineCount}");
                 
-                // Additional analysis to be implemented by students
+                // TODO: Additional analysis to be implemented
             }
             catch (Exception ex)
             {

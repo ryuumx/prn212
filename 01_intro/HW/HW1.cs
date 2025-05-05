@@ -36,7 +36,7 @@ namespace CommandLineCalculator
                 }
                 
                 // TODO: Implement parsing numbers and performing calculations
-                // This is where students will add their code
+                // This is where you will add your code
                 
                 // Example implementation for addition:
                 if (parts[0].ToLower() == "add")
@@ -50,7 +50,7 @@ namespace CommandLineCalculator
                         Console.WriteLine("Invalid numbers provided");
                     }
                 }
-                // Students need to implement subtract, multiply, divide operations
+                // TODO: Implement subtract, multiply, divide operations
             }
         }
     }
