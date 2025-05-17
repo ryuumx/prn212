@@ -12,7 +12,7 @@ namespace BoxingUnboxingPerformance
     {
         // Size of collections for testing
         private const int CollectionSize = 10_000_000;
-        private const int MemoryTestSize = 1_000_000; // Smaller size for memory tests
+        private const int MemoryTestSize = 1_000_000;
         
         static void Main(string[] args)
         {
