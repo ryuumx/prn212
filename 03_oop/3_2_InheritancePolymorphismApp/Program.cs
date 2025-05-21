@@ -95,7 +95,7 @@ namespace InheritanceAndPolymorphism
             };
             
             // Polymorphic behavior
-            foreach (Shape shapeObj in shapes)  // Changed variable name from 'shape' to 'shapeObj'
+            foreach (Shape shapeObj in shapes)
             {
                 // Virtual method call
                 shapeObj.Draw();
@@ -113,7 +113,7 @@ namespace InheritanceAndPolymorphism
             Rectangle rect = new Rectangle();
             rect.Print(); // Calls Rectangle.Print()
             
-            Shape baseShape = rect;  // Changed variable name from 'shape' to 'baseShape'
+            Shape baseShape = rect;
             baseShape.Print(); // Calls Shape.Print()
         }
     }
