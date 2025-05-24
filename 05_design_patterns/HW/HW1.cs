@@ -3,7 +3,7 @@ using System;
 namespace DesignPatterns.Homework
 {
     // This homework is based on the Factory Method Pattern
-    // Students will implement a factory method pattern for creating different types of vehicles
+    // You will implement a factory method pattern for creating different types of vehicles
 
     // Base Product interface
     public interface IVehicle

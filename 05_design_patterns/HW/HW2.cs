@@ -5,7 +5,7 @@ using System.Threading;
 namespace DesignPatterns.Homework
 {
     // This homework is based on the Singleton Pattern with a practical application
-    // Students will implement a basic logging system using the Singleton pattern
+    // You will implement a basic logging system using the Singleton pattern
     
     public class Logger
     {

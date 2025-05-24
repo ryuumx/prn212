@@ -3,8 +3,8 @@ using System.Collections.Generic;
 
 namespace DesignPatterns.Homework
 {
-    // This homework is based on the Observer Pattern
-    // Students will implement a weather monitoring system using the Observer pattern
+    // This homework is based on the Observer Pattern (https://learn.microsoft.com/en-us/dotnet/standard/events/observer-design-pattern)
+    // You will implement a weather monitoring system using the Observer pattern
 
     #region Observer Pattern Interfaces
 
