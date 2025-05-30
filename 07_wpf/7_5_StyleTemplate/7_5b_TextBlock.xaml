@@ -1,0 +1,22 @@
+<StackPanel Margin="20">
+    <TextBlock Name="textBlock1" TextWrapping="Wrap" Margin="10">
+        <Bold>TextBlock</Bold> is designed to be
+        <Italic>lightweight</Italic>,
+        and is geared specifically at integrating
+        <Italic>small</Italic>
+        portions of flow content into a UI.
+    </TextBlock>
+    
+    <TextBlock Name="textBlock2" TextWrapping="Wrap" Margin="10"
+               Background="AntiqueWhite" TextAlignment="Center">
+        By default, a TextBlock provides no UI
+        beyond simply displaying its contents.
+    </TextBlock>
+    
+    <TextBlock Margin="10" FontSize="16">
+        <Run Text="This is " FontWeight="Normal"/>
+        <Run Text="bold text" FontWeight="Bold"/>
+        <Run Text=" and this is " FontWeight="Normal"/>
+        <Run Text="italic text" FontStyle="Italic" Foreground="Red"/>
+    </TextBlock>
+</StackPanel>

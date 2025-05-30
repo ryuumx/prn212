@@ -1,0 +1,37 @@
+<Grid Margin="20">
+    <Grid.ColumnDefinitions>
+        <ColumnDefinition/>
+        <ColumnDefinition/>
+    </Grid.ColumnDefinitions>
+    
+    <!-- ListBox -->
+    <StackPanel Grid.Column="0" Margin="10">
+        <Label Content="ListBox Example"/>
+        <ListBox Name="lstItems" Height="150">
+            <ListBoxItem Content="Item 1"/>
+            <ListBoxItem Content="Item 2"/>
+            <ListBoxItem Content="Item 3"/>
+            <ListBoxItem Content="Item 4"/>
+            <ListBoxItem Content="Item 5"/>
+        </ListBox>
+    </StackPanel>
+    
+    <!-- ComboBox -->
+    <StackPanel Grid.Column="1" Margin="10">
+        <Label Content="ComboBox Example"/>
+        <ComboBox Name="cmbOptions" Margin="10">
+            <ComboBoxItem Content="Option A" IsSelected="True"/>
+            <ComboBoxItem Content="Option B"/>
+            <ComboBoxItem Content="Option C"/>
+            <ComboBoxItem Content="Option D"/>
+        </ComboBox>
+        
+        <Label Content="RadioButtons Example"/>
+        <RadioButton Content="Choice 1" Name="rb1" Margin="5"/>
+        <RadioButton Content="Choice 2" Name="rb2" Margin="5"/>
+        <RadioButton Content="Choice 3" Name="rb3" Margin="5"/>
+        
+        <CheckBox Content="Option 1" Margin="5"/>
+        <CheckBox Content="Option 2" Margin="5"/>
+    </StackPanel>
+</Grid>

@@ -1,0 +1,12 @@
+<StackPanel Background="LightBlue" Orientation="Vertical" Margin="20">
+    <Label Name="lblInstruction"
+           FontSize="15" Content="Enter Car Information"/>
+    <Label Name="lblCarName" Content="Car Name"/>
+    <TextBox Name="txtCarName" Height="25" Margin="5"/>
+    <Label Name="lblColor" Content="Color"/>
+    <TextBox Name="txtColor" Height="25" Margin="5"/>
+    <Label Name="lblBrand" Content="Brand"/>
+    <TextBox Name="txtBrand" Height="25" Margin="5"/>
+    <Button Name="btnDisplay" Width="80"
+            Margin="0,10,0,0" Content="Display"/>
+</StackPanel>

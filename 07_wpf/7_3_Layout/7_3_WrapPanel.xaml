@@ -1,0 +1,10 @@
+<WrapPanel Background="LightBlue" Orientation="Horizontal" Margin="10">
+    <Button Content="Button 1" Margin="5" Width="80"/>
+    <Button Content="Button 2" Margin="5" Width="80"/>
+    <Button Content="Button 3" Margin="5" Width="80"/>
+    <Button Content="Button 4" Margin="5" Width="80"/>
+    <Button Content="Button 5" Margin="5" Width="80"/>
+    <Button Content="Button 6" Margin="5" Width="80"/>
+    <Button Content="Long Button Name" Margin="5" Width="120"/>
+    <Button Content="Button 8" Margin="5" Width="80"/>
+</WrapPanel>

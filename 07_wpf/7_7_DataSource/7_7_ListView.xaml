@@ -1,0 +1,22 @@
+<Grid Margin="20">
+    <Grid.RowDefinitions>
+        <RowDefinition Height="Auto"/>
+        <RowDefinition Height="*"/>
+    </Grid.RowDefinitions>
+    
+    <Label Grid.Row="0" Content="Categories List" FontSize="16" FontWeight="Bold"/>
+    
+    <ListView Grid.Row="1" Name="lvCategories" Margin="10"
+              ItemsSource="{Binding Categories}">
+        <ListView.View>
+            <GridView>
+                <GridViewColumn Header="Category ID" Width="100"
+                               DisplayMemberBinding="{Binding Path=CategoryID}"/>
+                <GridViewColumn Header="Category Name" Width="200"
+                               DisplayMemberBinding="{Binding Path=CategoryName}"/>
+                <GridViewColumn Header="Description" Width="250"
+                               DisplayMemberBinding="{Binding Path=Description}"/>
+            </GridView>
+        </ListView.View>
+    </ListView>
+</Grid>

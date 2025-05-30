@@ -1,0 +1,31 @@
+﻿<Window x:Class="_7_6_DataBinding_Basic.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_7_6_DataBinding_Basic"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <StackPanel Margin="20">
+        <Label Content="Data Binding Examples" FontSize="18" FontWeight="Bold"/>
+        
+        <!-- Two-Way Binding with Slider and TextBox -->
+        <Label Content="Slider and TextBox Binding:"/>
+        <Slider Name="sldValue" Minimum="0" Maximum="100" Value="50" Margin="10"/>
+        <TextBox Text="{Binding ElementName=sldValue, Path=Value, Mode=TwoWay}" 
+                Margin="10" Width="100"/>
+        <TextBlock Text="{Binding ElementName=sldValue, Path=Value, StringFormat='Value: {0:F1}'}" 
+                Margin="10" FontSize="14"/>
+        
+        <!-- Element to Element Binding -->
+        <Label Content="TextBox to TextBlock Binding:"/>
+        <TextBox Name="txtInput" Text="Type something here..." Margin="10"/>
+        <TextBlock Text="{Binding ElementName=txtInput, Path=Text}" 
+                Background="LightYellow" Margin="10" Padding="5"/>
+        
+        <!-- CheckBox Binding -->
+        <CheckBox Name="chkEnable" Content="Enable TextBox" Margin="10"/>
+        <TextBox IsEnabled="{Binding ElementName=chkEnable, Path=IsChecked}" 
+                Text="This TextBox is controlled by CheckBox" Margin="10"/>
+    </StackPanel>
+</Window>

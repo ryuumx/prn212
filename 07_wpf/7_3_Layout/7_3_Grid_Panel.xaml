@@ -1,0 +1,25 @@
+<Grid Background="LightYellow">
+    <Grid.RowDefinitions>
+        <RowDefinition Height="Auto"/>
+        <RowDefinition Height="Auto"/>
+        <RowDefinition Height="Auto"/>
+        <RowDefinition Height="Auto"/>
+        <RowDefinition Height="Auto"/>
+    </Grid.RowDefinitions>
+    <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="Auto"/>
+        <ColumnDefinition Width="*"/>
+    </Grid.ColumnDefinitions>
+    
+    <Label Grid.Row="0" Grid.Column="0" Content="Car Name:" Margin="5"/>
+    <TextBox Grid.Row="0" Grid.Column="1" Name="txtCarName" Margin="5"/>
+    
+    <Label Grid.Row="1" Grid.Column="0" Content="Color:" Margin="5"/>
+    <TextBox Grid.Row="1" Grid.Column="1" Name="txtColor" Margin="5"/>
+    
+    <Label Grid.Row="2" Grid.Column="0" Content="Brand:" Margin="5"/>
+    <TextBox Grid.Row="2" Grid.Column="1" Name="txtBrand" Margin="5"/>
+    
+    <Button Grid.Row="3" Grid.ColumnSpan="2" Content="Display" 
+            Width="100" Margin="10" HorizontalAlignment="Center"/>
+</Grid>

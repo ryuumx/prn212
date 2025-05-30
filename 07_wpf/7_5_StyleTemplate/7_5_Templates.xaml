@@ -1,0 +1,39 @@
+<StackPanel Margin="20">
+    <Label Content="Custom Template Demo" FontSize="18" FontWeight="Bold"/>
+    
+    <!-- Button with Custom Template -->
+    <Button Content="Custom Template Button" Margin="10" Width="200" Height="50">
+        <Button.Template>
+            <ControlTemplate TargetType="Button">
+                <Border Background="Orange" CornerRadius="15" 
+                        BorderBrush="Red" BorderThickness="3">
+                    <ContentPresenter HorizontalAlignment="Center" 
+                                    VerticalAlignment="Center"/>
+                </Border>
+            </ControlTemplate>
+        </Button.Template>
+    </Button>
+    
+    <!-- Another Custom Template -->
+    <Button Content="Gradient Button" Margin="10" Width="200" Height="50">
+        <Button.Template>
+            <ControlTemplate TargetType="Button">
+                <Border CornerRadius="10" BorderThickness="2" BorderBrush="Purple">
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="LightBlue" Offset="0"/>
+                            <GradientStop Color="DarkBlue" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <ContentPresenter HorizontalAlignment="Center" 
+                                    VerticalAlignment="Center" 
+                                    TextElement.Foreground="White"
+                                    TextElement.FontWeight="Bold"/>
+                </Border>
+            </ControlTemplate>
+        </Button.Template>
+    </Button>
+    
+    <!-- Normal Button for comparison -->
+    <Button Content="Normal Button" Margin="10" Width="200" Height="50"/>
+</StackPanel>

@@ -1,0 +1,11 @@
+<DockPanel Background="LightGray">
+    <Label DockPanel.Dock="Top" Background="Red" Content="Top Panel" 
+           HorizontalAlignment="Stretch" Height="40"/>
+    <Label DockPanel.Dock="Bottom" Background="Blue" Content="Bottom Panel" 
+           HorizontalAlignment="Stretch" Height="40"/>
+    <Label DockPanel.Dock="Left" Background="Green" Content="Left Panel" 
+           VerticalAlignment="Stretch" Width="80"/>
+    <Label DockPanel.Dock="Right" Background="Yellow" Content="Right Panel" 
+           VerticalAlignment="Stretch" Width="80"/>
+    <TextBox Background="White" Text="Center Content fills remaining space"/>
+</DockPanel>

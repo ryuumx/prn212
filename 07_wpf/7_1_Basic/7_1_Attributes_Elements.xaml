@@ -1,0 +1,18 @@
+<StackPanel Margin="20">
+    <!-- Property Attribute -->
+    <Button Background="Blue" Foreground="Red" Content="Button 1" Margin="5"/>
+    
+    <!-- Property Element -->
+    <Button Margin="5">
+        <Button.Background>
+            <SolidColorBrush Color="Green"/>
+        </Button.Background>
+        <Button.Foreground>
+            <SolidColorBrush Color="White"/>
+        </Button.Foreground>
+        <Button.Content>Button 2</Button.Content>
+    </Button>
+    
+    <!-- Event Attribute -->
+    <Button Content="Click Me" Click="Button_Click" Margin="5"/>
+</StackPanel>s
