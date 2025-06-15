@@ -24,49 +24,49 @@ public class Student
 }
 
 // ViewModel
-    public class StudentViewModel : INotifyPropertyChanged
+public class StudentViewModel : INotifyPropertyChanged
+{
+    private Student _student;
+
+    public StudentViewModel()
     {
-        private Student _student;
+        _student = new Student { Name = "John Doe", Age = 20, Email = "john@example.com" };
+    }
 
-        public StudentViewModel()
+    public string Name
+    {
+        get { return _student.Name; }
+        set
         {
-            _student = new Student { Name = "John Doe", Age = 20, Email = "john@example.com" };
-        }
-
-        public string Name
-        {
-            get { return _student.Name; }
-            set
-            {
-                _student.Name = value;
-                OnPropertyChanged(nameof(Name));
-            }
-        }
-
-        public int Age
-        {
-            get { return _student.Age; }
-            set
-            {
-                _student.Age = value;
-                OnPropertyChanged(nameof(Age));
-            }
-        }
-
-        public string Email
-        {
-            get { return _student.Email; }
-            set
-            {
-                _student.Email = value;
-                OnPropertyChanged(nameof(Email));
-            }
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            _student.Name = value;
+            OnPropertyChanged(nameof(Name));
         }
     }
+
+    public int Age
+    {
+        get { return _student.Age; }
+        set
+        {
+            _student.Age = value;
+            OnPropertyChanged(nameof(Age));
+        }
+    }
+
+    public string Email
+    {
+        get { return _student.Email; }
+        set
+        {
+            _student.Email = value;
+            OnPropertyChanged(nameof(Email));
+        }
+    }
+
+    public event PropertyChangedEventHandler PropertyChanged;
+
+    protected void OnPropertyChanged(string propertyName)
+    {
+        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+    }
+}
