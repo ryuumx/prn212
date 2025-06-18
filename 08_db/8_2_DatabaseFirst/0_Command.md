@@ -1,6 +1,6 @@
 ### 0. Setup database
 - Install DB management system (if you haven't) - recommend SQL Server Express
-- Run ```0_DatabaseSetup.sql```
+- Run ```..\DatabaseSetup.sql```
 
 ### 1. Insall dependencies
 
